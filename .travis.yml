@@ -3,10 +3,13 @@ rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.0
-script: "appraisal rake"
+script: "bundle exec rake"
 gemfile:
   - Gemfile
-  - gemfiles/latest_stable.gemfile
-  - gemfiles/oldest_current.gemfile
-  - gemfiles/previous_release.gemfile
+  - gemfiles/vagrant_1.2.gemfile
+  - gemfiles/vagrant_1.3.gemfile
+  - gemfiles/vagrant_1.4.gemfile
+  - gemfiles/vagrant_1.5.gemfile
+  - gemfiles/vagrant_1.6.gemfile
+  - gemfiles/vagrant_master.gemfile
 
