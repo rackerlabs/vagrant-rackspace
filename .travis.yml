@@ -7,18 +7,15 @@ before_install:
   # Some older vagrant versions won't work with a newer bundler
   - rvm @global do gem uninstall bundler -a -x --force
   - gem install bundler --version '~> 1.5.0'
-  - gem install appraisal
 install:
   - bundle install
-  - appraisal install
-script: appraisal rake
-# Handled by appraisal
-#gemfile:
-#  - Gemfile
-#  - gemfiles/vagrant_1.2.gemfile
-#  - gemfiles/vagrant_1.3.gemfile
-#  - gemfiles/vagrant_1.4.gemfile
-#  - gemfiles/vagrant_1.5.gemfile
-#  - gemfiles/vagrant_1.6.gemfile
-#  - gemfiles/vagrant_master.gemfile
+script: bundle exec rake
+gemfile:
+  - Gemfile
+  - gemfiles/vagrant_1.2.gemfile
+  - gemfiles/vagrant_1.3.gemfile
+  - gemfiles/vagrant_1.4.gemfile
+  - gemfiles/vagrant_1.5.gemfile
+  - gemfiles/vagrant_1.6.gemfile
+  - gemfiles/vagrant_master.gemfile
 
