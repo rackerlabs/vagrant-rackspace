@@ -4,11 +4,12 @@ rvm:
   - 2.0.0
   - 2.1.0
 before_install:
-  - gem uninstall bundler -a -x --force
+  # Some older vagrant versions won't work with a newer bundler
+  - rvm @global do gem uninstall bundler -a -x --force
   - gem install bundler --version '~> 1.5.0'
   - gem install appraisal
-install: "appraisal install"
-script: "appraisal rake"
+install: appraisal install
+script: appraisal rake
 # Handled by appraisal
 #gemfile:
 #  - Gemfile
