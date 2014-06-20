@@ -1,8 +1,8 @@
 language: ruby
 rvm:
-  - 1.9.3
-  - 2.0.0
   - 2.1.0
+  - 2.0.0
+  - 1.9.3
 before_install:
   # Some older vagrant versions won't work with a newer bundler
   - rvm @global do gem uninstall bundler -a -x --force
@@ -10,12 +10,20 @@ before_install:
 install:
   - bundle install
 script: bundle exec rake
-gemfile:
-  - Gemfile
-  - gemfiles/vagrant_1.2.gemfile
-  - gemfiles/vagrant_1.3.gemfile
-  - gemfiles/vagrant_1.4.gemfile
-  - gemfiles/vagrant_1.5.gemfile
-  - gemfiles/vagrant_1.6.gemfile
-  - gemfiles/vagrant_master.gemfile
+matrix:
+  include:
+    - rvm: 2.1.0
+      gemfile: gemfiles/vagrant_master.gemfile
+    - rmv: 2.0.0
+      gemfile: gemfiles/vagrant_master.gemfile
+    - rvm: 1.9.3
+      gemfile: gemfiles/vagrant_1.2.gemfile
+    - rvm: 1.9.3
+      gemfile: gemfiles/vagrant_1.3.gemfile
+    - rvm: 1.9.3
+      gemfile: gemfiles/vagrant_1.4.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/vagrant_1.5.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/vagrant_1.6.gemfile
 
