@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gemspec
 group :plugins do
-# gem 'vagrant', :git => 'https://github.com/mitchellh/vagrant'
+  gem 'vagrant', :git => 'https://github.com/mitchellh/vagrant'
+  gemspec
 end
 
 group :development do
